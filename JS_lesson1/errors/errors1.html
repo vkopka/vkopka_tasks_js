@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+</head>
+<body>
+Ваше завдання, зробити так, щоб файл відкривався без помилок .
+
+<script>
+    // Ваше завдання, зробити так, щоб файл відкривався без помилок .
+
+    let a = 100;
+    let b = 500;
+    let c = "hello";
+    let d = "okten";
+    const x = 'constant value';
+    {
+        console.log(a);
+        // x = 'new value';  константу нельзя переприсваивать, без вариантов
+    }
+
+    // let b = 'new value';  переменная уже объявлена, повторно объявлять нельзя
+    // можно объявить с другим именем, если далее это значение нужно (ниже пример)
+    let b_str = 'new value';
+
+    // let result = 100 + y;  переменная "y" не объявлена, возможно нужно объявить let a = b; или ниже
+    // let result = 100 + b;  // нужно использовать одну из определенных ранее переменных
+    let result = a + b;       // так еще лучше, так как let a = 100; была определена ранее со значением 100
+
+    // console(result); неверная запись вывода в консоль
+    console.log(result);  // исправлено
+
+    console.log("Все ОК ! Это последняя строка JS в этом файле.");
+</script>
+
+</body>
+</html>

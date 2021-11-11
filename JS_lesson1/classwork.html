@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+Классное задание 1 урока (практика), лекция по JS
+
+<script>
+    // 1. Створити масив з 10 чисел (можна використовувати Math.random Та Math.floor).
+    // Скласти результат цих чисел в змінній result.
+
+    let myArray = [];
+    let result  = 0;
+    for (let item = 0; item < 10; item++) {
+        myArray.push( Math.floor(Math.random() * 100) );
+    }
+
+    myArray.forEach((element) => {
+        result += element;
+    });
+
+    console.log(result, myArray);
+
+</script>
+</body>
+</html>
