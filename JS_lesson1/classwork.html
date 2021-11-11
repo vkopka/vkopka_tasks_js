@@ -14,11 +14,14 @@
 <script>
     // 1. Створити масив з 10 чисел (можна використовувати Math.random Та Math.floor).
     // Скласти результат цих чисел в змінній result.
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
 
     let myArray = [];
-    let result  = 0;
+    let result = 0;
     for (let item = 0; item < 10; item++) {
-        myArray.push( Math.floor(Math.random() * 100) );
+        myArray.push(getRandomInt(100));
     }
 
     myArray.forEach((element) => {
@@ -26,6 +29,71 @@
     });
 
     console.log(result, myArray);
+
+    // 2. Створити об'єкт book з наступними полями  - назва, кількість сторінок, жанр
+    let book = {
+        bookTitle: 'Reference',
+        pageCount: 120,
+        bookGenre: 'manual'
+    };
+    console.log(book);
+
+    // Створити об'єкт book з наступними полями  - назва, кількість сторінок, жанр, автори
+    book.bookAutors = ['Unknown'];
+    console.log(book);
+
+    // 4. Створити масив об'єктів book з наступними полями  - назва, кількість сторінок, жанр, автори.
+    // Вивести кожну книгу як окремий об'єкт
+    let bookcase = [
+        book,
+        {
+            bookTitle: 'Foundation',
+            pageCount: 255,
+            bookGenre: 'Science fiction',
+            bookAutors: ['Isaac Asimov']
+        }
+    ];
+
+    for (let iBook = 0; iBook < bookcase.length; iBook++) {
+        console.log(bookcase[iBook]);
+    }
+
+    // 5. Напишіть код, який вираховує площу прямокутника висотою 23см. (змінна height) та шириною 10см (змінна width).
+    // Значення площі зберігати в змінній s.
+    function calculateAreaRectangle (height, width) {
+        return height * width;
+    }
+
+    let height = 23;
+    let width = 10;
+    let s = calculateAreaRectangle(height, width);
+
+    console.log(`Площадь прямоугольника размерами ${height} х ${width} равна ${s}.`);
+
+    // 6. Напиши код, який знаходить об'єм циліндра заввишки 10м (змінна heightC) та діаметром основи 4м (dC),
+    // результат помістіть у змінну v.
+    function calculateCylinderVolume(radius, height) {
+        return Math.PI * radius * radius * height;
+    }
+
+    let heightC = 10;
+    let dC = 4;
+    let v = calculateCylinderVolume(dC / 2, heightC);
+
+    console.log(`Объем цилиндра ${heightC} х ${dC} равен ${v}.`);
+
+    // 7. У прямокутного трикутника дві сторони n (зі значенням 3) та m (зі значенням 4).
+    // Знайдіть гіпотенузу k за теоремою Піфагора (потрібно використовувати функцію Math.pow (число, ступінь)
+    // або оператор зведення в ступінь **).
+    function calculateHypotenuseRightTriangle(sideOne, sideTwo) {
+        return Math.sqrt(Math.pow(sideOne, 2) + Math.pow(sideTwo, 2));
+    }
+
+    let n = 3;
+    let m = 4;
+    let k = calculateHypotenuseRightTriangle(n, m);
+
+    console.log(`Гипотенуза прямоугольного треугольника со сторонами ${n} и ${m} равна ${k}.`);
 
 </script>
 </body>
