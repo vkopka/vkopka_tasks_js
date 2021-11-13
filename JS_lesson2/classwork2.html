@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+
+    // - Користувач вводить або має два числа. Потрібно знайти та вивести максимальне число з тих двох.
+    //   Також потрібно врахувати коли введені рівні числа.
+    let xNumber = [];  // будущий массив чисел
+    let xCount = 2;    // количество элементов массива
+    for (let i = 0; i < xCount; i++) { // генерируем 2 случайных целых от 0 до 100
+        xNumber.push(getRandomInt(100));
+    }
+    console.log(`Исходные числа ` + xNumber);
+
+    let xMax = xNumber[0]; // Пока считаем первый элемент большим
+    let xEqual = 1; // Пока считаем все элементы равными
+    xNumber.forEach((element) => {
+        if (!(element === xMax)) {  // сравниваем с максимальным
+            xEqual = 0;           // элементы не равны
+            if (element > xMax) { // проверяем больше ли элемент максимального значения
+                xMax = element;   // если больше учиваем найденное максимальное
+            }
+        }
+    });
+    console.log((xEqual) ? `Все числа равны ${xMax}.` : `Максимальное число ${xMax}.`);
+
+    // - У першому під'їзді квартири з 1 до 20. У другому з 21 по 48. У третьому з 49 по 90.
+    // Користувач вводить номер квартири просто в змінні або через prompt('') .
+    //     Програма повинна зазначити, в якому під'їзді знаходиться дана квартира.
+    function viewEntrance(fRoom, fEntrance) {
+        let arrEntrances = ['первом', 'втором', 'третьем'];
+        console.log(`Квартира ${fRoom} в ${arrEntrances[fEntrance]} подъезде`);
+    }
+
+    let xRoom = getRandomInt(91);
+    if (xRoom < 21) {
+        viewEntrance(xRoom, 0);
+    } else if (xRoom < 49) {
+        viewEntrance(xRoom, 1);
+    } else if (xRoom < 91) {
+        viewEntrance(xRoom, 2);
+    } else {
+        console.log(`Квартиры с номером ${xRoom} в доме нет.`);
+    }
+
+    // - Ми маємо змінну number в яку користувач задає числове значення, якщо змінна рівна
+    // 10 вивести повідомлення ВІРНО, якщо змінна не рівна 10 - тоді НЕВІРНО
+    let number = 10;
+    console.log((number === 10) ? `ВІРНО.` : `НЕВІРНО.`);
+
+    // - Ми маємо змінну x в яку користувач задає  значення,
+    //     якщо в змінну записане число, вивести 1,
+    //     якщо в змінну записали стрінгу вивести 2,
+    //     якщо булеве значення - 3,
+    //     якщо об'єкт або масив - 4.
+    //     якщо в змінну записали щось інше, спрацьовує else
+    let myTypes = {'number': 1, 'string': 2, 'boolean': 3, 'object': 4};
+
+    let x = {1: 'a', 2: 'b', 3: 'c'};
+
+    if (typeof x === "number") {
+        console.log(myTypes.number);
+    } else if (typeof x === "string") {
+        console.log(myTypes.string);
+    } else if (typeof x === "boolean") {
+        console.log(myTypes.boolean);
+    } else if (typeof x === "object") {
+        console.log(myTypes.object);
+    } else {
+        console.log('Это что-то другое');
+    }
+
+    // - Задача-гра "чи ми йдемо сьогодні в ОКТЕН на навчання?".
+    // Змінна, яка характеризує температуру. Якщо температура від +10 до +22 вивести повідомлення що ми йдемо ВЧИТИСЯ.
+    // Якщо інша темпаретура, тоді виводимо повідомлення що сидимо вдома і вчимося ОНЛАЙН
+    let xTemperature = 23;
+    if (xTemperature >= 10 && xTemperature <= 22) {
+        console.log('Мы идем учится в класс');
+    } else {
+        console.log('Мы остаемся дома и учимся ОНЛАЙН');
+    }
+
+    // - За допомогою switch case - реалізувати гру - вікторину, де ми вводимо число від 1 до 5.
+    // І взалежності від введеного числа нам дається приз. (Авто, Мото, Телефон, і т.д ) і
+    // якщо число не підходить тоді  вивести Повідомлення - що число не вірне ... .
+    let myChoice = +prompt('Введите число и выиграйте приз - ');
+    switch (myChoice) {
+        case 1 : {
+            console.log('Вы выигали Автомобиль !');
+            break;
+        }
+        case 2 : {
+            console.log('Вы выигали Самокат !');
+            break;
+        }
+        case 3 : {
+            console.log('Вы выигали Мобильный !');
+            break;
+        }
+        case 4 : {
+            console.log('Вы выигали Конфету !');
+            break;
+        }
+        case 5 : {
+            console.log('Вы выигали Свету ;) !');
+            break;
+        }
+        default : {
+            console.log('Неверное число, сыграйте еще...');
+        }
+    }
+
+</script>
+</body>
+</html>
