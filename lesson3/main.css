@@ -1,0 +1,18 @@
+.style-Simpson {
+    text-align: justify;
+}
+.style-Product {
+    width: 350px;
+    margin: 10px;
+    border: 1px solid #b5afd2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.style-Image {
+    width: 60%;
+    height: 60%;
+    background: deepskyblue;
+}
