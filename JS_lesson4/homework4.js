@@ -20,8 +20,12 @@ function calculationAreaCylinder(h, r) {
 console.log(calculationAreaCylinder(5, 2));
 
 // - створити функцію яка приймає масив та виводить кожен його елемент
+let isArray = function (subj) {
+    return (!!subj) && (subj.constructor === Array);
+};
+
 function viewElementsArray(iArray) {
-    if (Array.isArray(iArray)) {
+    if (isArray(iArray)) {
         for (const iArrayElement of iArray) {
             console.log(iArrayElement);
         }
@@ -98,12 +102,12 @@ let listPerson = [
     },
 ];
 
-isLiteralObject = function (subj) {
+let isLiteralObject = function (subj) {
     return (!!subj) && (subj.constructor === Object);
 };
 
 function viewPersons(Persons) {
-    if (Array.isArray(Persons)) {
+    if (isArray(Persons)) {
         for (const person of Persons) {
             if (isLiteralObject(person)) {
                 // document.write(`<div>`);
