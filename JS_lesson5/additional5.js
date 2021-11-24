@@ -76,7 +76,7 @@ const moveElementsInArray = (fArray, aValue) => {
             }
         }
     }
-}
+};
 
 console.log(myArray1.join(', '));
 moveElementsInArray(myArray1, myValue);
