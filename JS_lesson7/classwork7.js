@@ -156,7 +156,7 @@ class Prince {
     }
 
     viewPrince () {
-        console.log(`Name: ${this.nameMajesty}  Age: ${this.age}  Lost shoe size: ${this.lostShoeSize}`);
+        console.log(`Prince: ${this.nameMajesty}  Age: ${this.age}  Lost shoe size: ${this.lostShoeSize}`);
     }
 }
 
