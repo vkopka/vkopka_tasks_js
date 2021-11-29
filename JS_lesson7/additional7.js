@@ -89,4 +89,5 @@ const account = new UserData(1, 'Leanne Graham', 'Bret', 'Sincere@april.biz',
     '81.1496','1-770-736-8031 x56442', 'hildegard.org', 'Romaguera-Crona',
     'Multi-layered client-server neural-net', 'harness real-time e-markets');
 console.log(account);
+console.log('-------------------------------------');
 account.viewUserData();
