@@ -98,12 +98,12 @@ class UserCard {
     transferCredits(value, toCard) {
         if (isNumber(value)) {
             if (toCard instanceof UserCard) {
-                if (value > this.balance) {
+                let tax = value * taxes / 100;
+                if (value + tax > this.balance) {
                     consoleError(2);
                 } else if (value > this.transactionLimit) {
                     consoleError(3);
                 } else {
-                    let tax = value * taxes / 100;
                     this.takeCredits(value + tax);  // take this card:  value + tax
                     toCard.putCredits(value); // put toCard: value
                 }
