@@ -54,25 +54,24 @@ for (const simpson of simpsons) {
     let text = '';
     let template = createTagElementWithClassAndText(tag, nameClass);
     template.style.padding = '5px';
-    document.body.appendChild(template);
-    const element = document.getElementsByClassName(nameClass);
+    const element = document.body.appendChild(template);
 
     tag = 'h3';
     nameClass = '';
     text = `${simpson.name} ${simpson.surname}, ${simpson.age}`;
     template = createTagElementWithClassAndText(tag, nameClass, text);
-    element[element.length - 1].appendChild(template);
+    element.appendChild(template);
 
     tag = 'p';
     text = `${simpson.info}`;
     template = createTagElementWithClassAndText(tag, nameClass, text);
-    element[element.length - 1].appendChild(template);
+    element.appendChild(template);
 
     tag = 'img';
     template = createTagElementWithClassAndText(tag, nameClass);
     template.src = simpson.photo;
     template.alt = `photo ${simpson.name} ${simpson.surname}`;
-    element[element.length - 1].appendChild(template);
+    element.appendChild(template);
 }
 
 // - взяти попередній масив з сімпсонами.
@@ -80,8 +79,7 @@ for (const simpson of simpsons) {
 // Для кожної властивості елементу створити окремий блок, та помістити його у div.member
 const createBlockClassInBlock = (elementBlock, nameClass = 'inner-block') => {
     let template = createTagElementWithClassAndText('div', nameClass);
-    elementBlock[elementBlock.length - 1].appendChild(template);
-    template = document.getElementsByClassName('inner-block');
+    template = elementBlock.appendChild(template);
     return template;
 };
 
@@ -90,9 +88,8 @@ for (const simpson of simpsons) {
     let tag = 'div';
     let nameClass = 'member';
     let template = createTagElementWithClassAndText(tag, nameClass);
-    document.body.appendChild(template);
-    const element = document.body.getElementsByClassName(nameClass);
-    element[element.length - 1].style.padding = '5px';
+    const element = document.body.appendChild(template);
+    element.style.padding = '5px';
 
     for (const key in simpson) {
         const innerElement = createBlockClassInBlock(element);
@@ -113,7 +110,7 @@ for (const simpson of simpsons) {
             template.alt = 'Photo simpson';
         }
 
-        innerElement[innerElement.length - 1].appendChild(template);
+        innerElement.appendChild(template);
     }
 }
 
