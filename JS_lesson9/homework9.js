@@ -59,17 +59,16 @@ for (const course of coursesAndDurationArray) {
 // За допомоги сценарію для кожного елементу масиву зробити <div class='item'> ,
 // в якому буде <h1 class='heading'>  з title  елементу, та <p class='description'> з monthDuration елементу.
 //     Завдання робити через цикли.
-const paramTags = {
-    // property: [tag, nameClass]
+const paramTags = {  // property: [tag, nameClass]
     'title': ['h1', 'heading'],
     'monthDuration': ['p', 'description']
 };
 
+className = 'item';
 for (const course of coursesAndDurationArray) {
-    const template = document.createElement('div');
-    template.classList.add('item');
+    const template = createTagElementWithClassAndText('div', className);
     document.body.appendChild(template);
-    className = 'item';
+
     const elementDiv = document.getElementsByClassName(className);
     for (const courseKey in course) {
         const element = createTagElementWithClassAndText(

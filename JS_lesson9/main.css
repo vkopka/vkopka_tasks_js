@@ -1,0 +1,45 @@
+.course {
+    border-style: solid;
+    border-color: #3d4788;
+    border-width: 1px;
+    margin: 15px;
+}
+
+.title, .modules {
+    border-style: solid;
+    border-color: #6b74ad;
+    border-width: 1px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.module {
+    border-style: solid;
+    border-color: #6b74ad;
+    border-width: 1px;
+    padding: 5px;
+    margin: 2px;
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+}
+
+.month {
+    flex-grow: 1;
+    border-style: solid;
+    border-color: #6b74ad;
+    border-width: 1px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.hour {
+    flex-grow: 3;
+    border-style: solid;
+    border-color: #6b74ad;
+    border-width: 1px;
+    padding: 5px;
+    margin: 5px;
+}

@@ -1,3 +1,14 @@
+const createTagElementWithClassAndText = (tag, nameClass = '', text = '') => {
+    const element = document.createElement(tag);
+    element.style.textAlign = 'justify';
+    if (nameClass !== '') {
+        element.classList.add(nameClass);
+    }
+    if (text !== '') {
+        element.innerText = text;
+    }
+    return element;
+};
 // - є масив
 let simpsons = [
     {
@@ -38,8 +49,166 @@ let simpsons = [
 ];
 // Пройти його, створивши для кожного елементу масиву <div class='member'>.
 for (const simpson of simpsons) {
+    let tag = 'div';
+    let nameClass = 'member';
+    let text = '';
+    let template = createTagElementWithClassAndText(tag, nameClass);
+    template.style.padding = '5px';
+    document.body.appendChild(template);
+    const element = document.getElementsByClassName(nameClass);
+
+    tag = 'h3';
+    nameClass = '';
+    text = `${simpson.name} ${simpson.surname}, ${simpson.age}`;
+    template = createTagElementWithClassAndText(tag, nameClass, text);
+    element[element.length - 1].appendChild(template);
+
+    tag = 'p';
+    text = `${simpson.info}`;
+    template = createTagElementWithClassAndText(tag, nameClass, text);
+    element[element.length - 1].appendChild(template);
+
+    tag = 'img';
+    template = createTagElementWithClassAndText(tag, nameClass);
+    template.src = simpson.photo;
+    template.alt = `photo ${simpson.name} ${simpson.surname}`;
+    element[element.length - 1].appendChild(template);
 }
 
 // - взяти попередній масив з сімпсонами.
 // Пройти його, створивши для кожного елементу масиву <div class='member'>.
 // Для кожної властивості елементу створити окремий блок, та помістити його у div.member
+const createBlockClassInBlock = (elementBlock, nameClass = 'inner-block') => {
+    let template = createTagElementWithClassAndText('div', nameClass);
+    elementBlock[elementBlock.length - 1].appendChild(template);
+    template = document.getElementsByClassName('inner-block');
+    return template;
+};
+
+for (const simpson of simpsons) {
+    let text = '';
+    let tag = 'div';
+    let nameClass = 'member';
+    let template = createTagElementWithClassAndText(tag, nameClass);
+    document.body.appendChild(template);
+    const element = document.body.getElementsByClassName(nameClass);
+    element[element.length - 1].style.padding = '5px';
+
+    for (const key in simpson) {
+        const innerElement = createBlockClassInBlock(element);
+        nameClass = '';
+
+        if (key === 'photo') {
+            tag = 'img';
+            text = '';
+        } else {
+            tag = 'p';
+            text = `${simpson[key]}`;
+        }
+
+        template = createTagElementWithClassAndText(tag, nameClass, text);
+
+        if (key === 'photo') {
+            template.src = simpson[key];
+            template.alt = 'Photo simpson';
+        }
+
+        innerElement[innerElement.length - 1].appendChild(template);
+    }
+}
+
+const coursesArray = [
+    {
+        title: 'JavaScript Complex',
+        monthDuration: 5,
+        hourDuration: 901,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
+    },
+    {
+        title: 'Java Complex',
+        monthDuration: 6,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'angular',
+            'aws',
+            'docker',
+            'git',
+            'java core',
+            'java advanced']
+    },
+    {
+        title: 'Python Complex',
+        monthDuration: 6,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'angular',
+            'aws',
+            'docker',
+            'python core',
+            'python advanced']
+    },
+    {
+        title: 'QA Complex',
+        monthDuration: 4,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
+    },
+    {
+        title: 'FullStack',
+        monthDuration: 7,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'react',
+            'angular',
+            'aws',
+            'docker',
+            'git',
+            'node.js',
+            'python',
+            'java']
+    },
+    {
+        title: 'Frontend',
+        monthDuration: 4,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
+    }
+];
+// Створити для кожного елементу масиву свій блок, блок розділити блоками, в яких будуть зберігатись значення
+// окремих властивостей, для властивості modules зробити список з елементами
+// Приклад структури знаходиться у файлі example.png
+for (const courseArrayElement of coursesArray) {
+    let template = createTagElementWithClassAndText('div', 'course');
+    const mainDiv = document.body.appendChild(template);
+
+    template = createTagElementWithClassAndText('div', 'title', courseArrayElement.title);
+    mainDiv.appendChild(template);
+
+    template = createTagElementWithClassAndText('div', 'box', '');
+    const boxDiv = mainDiv.appendChild(template);
+
+    template = createTagElementWithClassAndText('div', 'month', courseArrayElement.monthDuration);
+    boxDiv.appendChild(template);
+    template = createTagElementWithClassAndText('div', 'hour', courseArrayElement.hourDuration);
+    boxDiv.appendChild(template);
+
+    template = createTagElementWithClassAndText('div', 'modules', '');
+    const modulesDiv = mainDiv.appendChild(template);
+
+    for (const module of courseArrayElement.modules) {
+        template = createTagElementWithClassAndText('div', 'module', module);
+        modulesDiv.appendChild(template);
+    }
+}
