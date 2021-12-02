@@ -1,16 +1,27 @@
+const createTagElementWithClassAndText = (tag, nameClass = '', text = '') => {
+    const element = document.createElement(tag);
+    if (nameClass !== '') {
+        element.classList.add(nameClass);
+    }
+    if (text !== '') {
+        element.innerText = text;
+    }
+    return element;
+}
+
 // Все робити за допомоги js.
 // - створити блок,
-//     - додати йому класи wrap, collapse, alpha, beta
+// - додати йому класи wrap, collapse, alpha, beta
 // - додати стилі(довільні значення) : колір фону, колір тексту, розмір тексту
 // - додати цей блок в body.
 // - клонувати його повністю, та додати клон в body.
-const template = document.createElement('div');
-template.innerText = 'This block';
+const template = createTagElementWithClassAndText('div', '', 'This block');
 template.classList.add('wrap', 'collapse', 'alpha', 'beta');
 template.style.background = 'gray';
 template.style.color = 'blue';
 template.style.fontSize = '24px';
 document.body.appendChild(template);
+
 const divClone = template.cloneNode(true);
 divClone.innerText = 'Clone block';
 document.body.appendChild(divClone);
@@ -24,8 +35,7 @@ let className = 'menu';
 const elementMenu = document.getElementsByClassName(className);
 const menuItems = ['Main', 'Products', 'About us', 'Contacts'];
 for (const menuItem of menuItems) {
-    const itemLi = document.createElement('li');
-    itemLi.innerText = menuItem;
+    const itemLi = createTagElementWithClassAndText('li', '', menuItem);
     elementMenu[0].appendChild(itemLi);
 }
 
@@ -41,12 +51,7 @@ let coursesAndDurationArray = [
 // Для кожного елементу масиву зробити блок в якому вивести інформацію про title та monthDuration
 // Завдання робити через цикли.
 for (const course of coursesAndDurationArray) {
-    let text = '';
-    for (const courseKey in course) {
-        text += `${courseKey}: ${course[courseKey]} `;
-    }
-    const template = document.createElement('div');
-    template.innerText = text;
+    const template = createTagElementWithClassAndText('div', '', Object.values(course).join(', '));
     document.body.appendChild(template);
 }
 
@@ -54,6 +59,12 @@ for (const course of coursesAndDurationArray) {
 // За допомоги сценарію для кожного елементу масиву зробити <div class='item'> ,
 // в якому буде <h1 class='heading'>  з title  елементу, та <p class='description'> з monthDuration елементу.
 //     Завдання робити через цикли.
+const paramTags = {
+    // property: [tag, nameClass]
+    'title': ['h1', 'heading'],
+    'monthDuration': ['p', 'description']
+};
+
 for (const course of coursesAndDurationArray) {
     const template = document.createElement('div');
     template.classList.add('item');
@@ -61,15 +72,8 @@ for (const course of coursesAndDurationArray) {
     className = 'item';
     const elementDiv = document.getElementsByClassName(className);
     for (const courseKey in course) {
-        let element = {};
-        if (courseKey === 'title') {
-            element = document.createElement('h1');
-            element.classList.add('heading');
-        } else if (courseKey === 'monthDuration') {
-            element = document.createElement('p');
-            element.classList.add('description');
-        }
-        element.innerText = `${courseKey}: ${course[courseKey]}`;
+        const element = createTagElementWithClassAndText(
+            paramTags[courseKey][0], paramTags[courseKey][1], course[courseKey]);
         elementDiv[elementDiv.length - 1].appendChild(element);
     }
 }
