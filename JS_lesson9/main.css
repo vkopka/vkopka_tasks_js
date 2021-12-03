@@ -44,7 +44,7 @@
     margin: 5px;
 }
 
-.user {
+.user, .rules {
     border-style: solid;
     border-color: #3d4788;
     border-width: 1px;
@@ -53,7 +53,7 @@
     text-align: justify;
 }
 
-.name, .age, .status, .address {
+.name, .age, .status, .address, .bodies {
     border-style: solid;
     border-color: #6b74ad;
     border-width: 1px;
@@ -67,4 +67,13 @@
     border-width: 1px;
     padding: 5px;
     margin: 2px;
+}
+
+.titles {
+    border-style: solid;
+    border-color: #6b74ad;
+    border-width: 1px;
+    padding: 5px;
+    margin: 2px;
+    font: bold 18px SansSerif;
 }

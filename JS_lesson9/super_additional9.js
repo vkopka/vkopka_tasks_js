@@ -196,3 +196,18 @@ let rules = [
         body: 'Новичок обязан принять бой.'
     },
 ];
+
+for (let i = 0; i < rules.length; i++) {
+    const item = document.body.appendChild(
+        createElementTagClassText('div', 'rules')
+    );
+    item.classList.add(`rule${i + 1}`);
+    const title = item.appendChild(
+        createElementTagClassText('div', 'titles', rules[i].title)
+    );
+    title.classList.add(`title${i + 1}`);
+    const body = item.appendChild(
+        createElementTagClassText('div', 'bodies', rules[i].body)
+    );
+    body.classList.add(`body${i + 1}`);
+}
