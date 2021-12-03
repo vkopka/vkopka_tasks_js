@@ -43,3 +43,28 @@
     padding: 5px;
     margin: 5px;
 }
+
+.user {
+    border-style: solid;
+    border-color: #3d4788;
+    border-width: 1px;
+    margin: 15px;
+    padding: 5px;
+    text-align: justify;
+}
+
+.name, .age, .status, .address {
+    border-style: solid;
+    border-color: #6b74ad;
+    border-width: 1px;
+    padding: 5px;
+    margin: 2px;
+}
+
+.city, .country, .street, .houseNumber {
+    border-style: solid;
+    border-color: #6b74ad;
+    border-width: 1px;
+    padding: 5px;
+    margin: 2px;
+}
