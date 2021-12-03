@@ -146,11 +146,17 @@ createLine();
 
 // - є сторінка rules.html. Контентом сторінки є заголовки та параграфи.
 // Заголовки (h2) характеризують тему контенту яка вказана в параграфі.
-// створити сценарій, котрий зчитує всі заголовки, та робить в блоці з id=content з них список(ul>li),
+// створити сценарій, котрий зчитує всі заголовки, та робить в блоці з id=content з них список (ul>li),
 // який буде змістом того, що знаходиться на сторінці.
 // сценарій повинен працювати навіть якщо кількість блоків з заголовком та параграфом зміниться.
+const itemUl = document.getElementById('content').appendChild(createElementTagClassText('ul'));
 
-createLine();
+document.querySelectorAll('#wrap > .rules > h2').forEach(value => {
+    let template = createElementTagClassText('li', '', value.textContent);
+    itemUl.appendChild(template);
+});
+
+// createLine();
 
 // - Є масив котрий характеризує правила.
 // Створити скрипт який ітерує цей масив, та робить кожне правило в окремому блоці.
