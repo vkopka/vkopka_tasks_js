@@ -1,0 +1,18 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+    border-color: #6b74ad;
+    border-width: 1px;
+    width: 500px;
+}
+.title {
+    padding: 5px;
+}
+.body {
+    padding: 5px;
+}
+.button {
+    position: relative;
+    top: 0; left: 418px;
+}
