@@ -81,14 +81,29 @@ btnTable.addEventListener('click', () => {
 });
 
 // - Створити масив не цензурних слів.
+const obsceneWords = ['fool', 'stupid', 'dumb', 'retard'];
 // Створити input текстового типу.
+createTagElement('hr', '', '', '');
+const anyText = createControlElement('input', 'text', '', '');
+const btnAnyText = createTagElement('button', 'forms', '', 'Check text');
 // Якщо людина вводить слово і воно міститься в масиві не цензурних слів
 // кинути alert з попередженням.
 // Перевірку робити при натисканні на кнопку
-
+// btnAnyText.addEventListener('click', () => {
+//     let str = anyText.value.trim().toLowerCase();
+//     if (obsceneWords.some(value => str === value))) {
+//         alert('An obscene word was found');
+//     }
+// });
 
 // - Створити масив не цензурних слів.
 // Створити input текстового типу.
 // Потрібно перевіряти чи не містить ціле речення в собі погані слова.
 // Кинути alert з попередженням у випадку якщо містить.
 // Перевірку робити при натисканні на кнопку
+btnAnyText.addEventListener('click', () => {
+    let str = anyText.value.trim().toLowerCase();
+    if (obsceneWords.some(value => str.includes(value))) {
+        alert('An obscene word was found');
+    }
+});
