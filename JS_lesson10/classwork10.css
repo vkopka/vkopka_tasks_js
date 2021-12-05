@@ -1,0 +1,31 @@
+.forms {
+    border-style: solid;
+    border-color: #6b74ad;
+    border-width: 1px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.pairFields {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0 0;
+}
+
+.headField {
+    width: 100px;
+}
+
+.itemTable {
+    background-color: #ece8e2;
+    border: 2px solid #412834;
+}
+
+.itemLine {
+    border: 1px solid #535564;
+}
+
+.itemColumn {
+    border: 1px solid #535564;
+    min-width: 18px;
+}
