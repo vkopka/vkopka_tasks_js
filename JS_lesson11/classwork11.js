@@ -22,19 +22,27 @@ let users = [
 // My best friends
 const idBest = 'BestFriends';  // id local storage
 const friendsDiv = createTagElement('div', 'forms', '');
+const favorites = loadLocalStorage(idBest);
 
 users.forEach(user => {
     const divNameFriend = createTagElement('div', 'pairFields', '', '', friendsDiv);
     createTagElement('span', 'headFrieds', '',
         `Name: ${user.name}\n Age: ${user.age}\n Status: ${user.status}`, divNameFriend);
     const buttonBest = createTagElement('button', 'forms', '', 'Best friend', divNameFriend);
+    buttonBest.className = favorites.some(value => !checkObjects(value, user)) ? 'forms1' : 'forms';
     createTagElement('hr', '', '', '', friendsDiv);
 
     buttonBest.onclick = () => {
-        const favorites = loadLocalStorage(idBest);
         if (favorites.length === 0 || !favorites.some(value => !checkObjects(value, user))) {
             // console.log(user);
             favorites.push(user);
+            buttonBest.className = 'forms1';
+        } else {
+            const index = favorites.findIndex(value => !checkObjects(value, user));
+            if (index > -1) {
+                favorites.splice(index, 1);
+                buttonBest.className = 'forms';
+            }
         }
         saveLocalStorage(idBest, favorites);
     };
