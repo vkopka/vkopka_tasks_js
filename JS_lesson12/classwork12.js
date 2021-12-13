@@ -7,6 +7,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
     .then((response) => response.json())
     .then((items) => {
             // console.log(items);
+            const statusButtons = {};
             const mainDiv = createTagElement('div', 'wrapper', '', '');
             for (const post of items) {
                 const postDiv = createTagElement('div', 'post', '', '', mainDiv);
@@ -19,7 +20,6 @@ fetch('https://jsonplaceholder.typicode.com/posts')
 
                 const buttonComments = createTagElement('button', 'forms', '', 'Show comments', postDiv);
 
-                const statusButtons = {};
                 buttonComments.addEventListener('click', () => {
 
                     buttonComments.innerText = 'Hide comments';
