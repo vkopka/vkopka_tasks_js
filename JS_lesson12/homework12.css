@@ -22,14 +22,34 @@ body {
     background: #d8e4ef;
 }
 
-.post h3 {
+.post h3, .postExt h3, .comments h3 {
     margin: 0;
 }
 
-.post h4 {
+.post h4, .postExt h4, .comments h4 {
     margin: 5px;
 }
 
-.post p {
+.post p, .postExt p, .comments p {
     margin: 5px;
+}
+
+.postExt {
+    margin: 5px 5px 5px 15px;
+    padding: 5px;
+    border: 1px solid #535564;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.comments {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #a57bd9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
 }
