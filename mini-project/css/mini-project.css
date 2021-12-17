@@ -1,0 +1,47 @@
+body {
+    justify-content: center;
+    width: 500px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.user {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #a57bd9;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 1px #797777, 0 2px 1px #b9b4b4;
+}
+
+.userId {
+    width: 60px;
+}
+
+.userName {
+    width: 300px;
+}
+
+.userExt {
+    margin: 5px 0 5px;
+    padding: 2px;
+    border: 2px solid #847d98;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px #797777, 0 5px 5px #b9b4b4;
+}
+
+.property {
+    width: 70px;
+}
+
+.value {
+}
