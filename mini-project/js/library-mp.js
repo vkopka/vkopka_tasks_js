@@ -2,6 +2,8 @@
 const url = 'https://jsonplaceholder.typicode.com/';
 // Local storage user ID
 const userId = 'miniProjectUserId';
+// Local storage post ID
+const postId = 'miniProjectPostId';
 
 // Check Objects
 const checkObjects = (obj1, obj2) => {
@@ -15,22 +17,6 @@ const loadLocalStorage = (idBest) => {
 
 const saveLocalStorage = (idBest, values) => {
     localStorage.setItem(idBest, JSON.stringify(values));
-};
-
-// Form
-const createForm = (name = '', action = '#', method = 'post', fElement= undefined) => {
-    let element = document.createElement('form');
-    element.action = action;
-    element.method = method;
-    element.name = name;
-
-    if (typeof fElement === "undefined") {
-        element = document.body.appendChild(element);
-    } else {
-        element = fElement.appendChild(element);
-    }
-
-    return element;
 };
 
 // Tag element
@@ -56,28 +42,7 @@ const createTagElement = (tag, nameClass = '', id = '', text = '',
     return element;
 };
 
-// Control element
-const createControlElement = (tag, type, value = '', name = '',  pElement = undefined) => {
-    let element = document.createElement(tag);
-
-    element.type = type;
-
-    if (name !== '') {
-        element.name = name;
-    }
-
-    element.value = value;
-
-    if (typeof pElement === "undefined") {
-        element = document.body.appendChild(element);
-    } else {
-        element = pElement.appendChild(element);
-    }
-
-    return element;
-};
-
 export {
-    loadLocalStorage, saveLocalStorage, checkObjects, createForm, createTagElement, createControlElement,
-    url, userId
+    loadLocalStorage, saveLocalStorage, checkObjects, createTagElement,
+    url, userId, postId
 };
